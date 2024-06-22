@@ -4,79 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    \
-    <script>
-      function playRound() {
-        console.log("Welcome to Rock Paper Scissors Game ");
-        let play = true;
+    <script src="dom.js"></script>
 
-        while (play) {
-          const humanChoice = getHumanChoice();
-          const computerChoice = getComputerChoice();
-          console.log("The computer played " + computerChoice + ".");
-         
-          if (computerChoice === humanChoice) {
-            console.log("it's a draw");
-          } else if (computerChoice === "rock") {
-            if (humanChoice === "paper") {
-              console.log("You Won!!!");
-            } else {
-              console.log("You Lost!!!");
-            }
-          } else if (computerChoice === "paper") {
-            if (humanChoice === "scissors") {
-              console.log("You Won!!!");
-            } else {
-              console.log("You Lost!!!");
-            }
-          } else {
-            //computer choice must be rock
-            if (humanChoice === "paper") {
-              console.log("You Won!!!");
-            } else {
-              console.log("You Lost!!!");
-            }
-          }
+    <div class="container">
+      <h1>Let's Play Rock Paper Scissors!</h1>
+      <!-- Keeps track of the score and round -->
+      <div class="scoreboard">
+        <div class="score">Round: 0</div>
+        <div class="score">Your Points: 0</div>
+        <div class="score">Computer's Points: 0</div>
+      </div>
+      <div class="playerChoices">
+        <button class="playerChoices" id="rock">✊rock</button>
+        <button class="playerChoices" id="paper">✋paper</button>
+        <button class="playerChoices" id="scissors">✌️Scissors</button>
+      </div>
+      <h2>History</h2>
+      <div class = "played"> 
 
-          const anw = prompt("Do you want to play again? (y/n)");
-          if (anw.toLocaleLowerCase() === "y") {
-            continue;
-          } else {
-            play = false;
-          }
-        }
-      }
-
-      function getComputerChoice() {
-        const randomNum = Math.floor(Math.random() * 3); // gets random number between 0 - 2 inclusive
-        if (randomNum === 0) {
-          return "rock";
-        } else if (randomNum === 1) {
-          return "paper";
-        } else {
-          return "scissors";
-        }
-      }
-      function getHumanChoice() {
-        const anw = prompt("What do you want to play: rock, paper or scissors?");
-
-        if (anw.toLowerCase() === "rock") {
-          return "rock";
-        } else if (anw.toLowerCase() === "paper") {
-          return "paper";
-        } else if (anw.toLowerCase() === "scissors") {
-          return "scissors";
-        } else {
-          console.log("answer not regonized try again");
-          return getHumanChoice();
-        }
-      }
-
-      playRound();
-
-      console.log();
-    </script>
+      </div>
+    </div>
   </body>
 </html>
